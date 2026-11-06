@@ -47,7 +47,8 @@ h1 em, h2 em { color: var(--pink); font-style: normal; }
 .centered { text-align: center; }
 .activities { background: var(--peach); max-width: none; padding-left: max(34px, calc((100% - 1172px) / 2)); padding-right: max(34px, calc((100% - 1172px) / 2)); }
 .activity-grid { display: grid; gap: 15px; grid-template-columns: repeat(5, 1fr); margin-top: 55px; }
-.activity-card { border-radius: 22px; color: white; min-height: 270px; padding: 25px 20px; }
+.activity-card { border-radius: 22px; color: white; min-height: 270px; padding: 25px 20px; position: relative; transition: box-shadow .25s ease, transform .25s ease; }
+.activity-card:hover { box-shadow: 0 18px 30px #17263d2e; transform: scale(1.045); z-index: 2; }
 .activity-card.pink { background: var(--pink); }
 .activity-card.green { background: var(--green); }
 .activity-card.orange { background: var(--orange); }
