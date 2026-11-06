@@ -26,13 +26,19 @@
       <a class="brand" href="#accueil" aria-label="Retour à l'accueil">
         <img src="assets/logo-atelier-des-liens.png" alt="Logo de L'Atelier des Liens">
       </a>
-      <nav aria-label="Navigation principale">
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Ouvrir le menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <nav class="nav-menu" id="mainNav" aria-label="Navigation principale">
         <a href="#association">L'association</a>
         <a href="#activites">Activités</a>
         <a href="#adhesion">Adhésion</a>
         <a href="#contact">Nous trouver</a>
+        <a class="button button-small mobile-only-button" href="tel:+33622775590">Nous appeler</a>
       </nav>
-      <a class="button button-small" href="tel:+33622775590">Nous appeler</a>
+      <a class="button button-small desktop-only-button" href="tel:+33622775590">Nous appeler</a>
     </header>
 
     <main>
@@ -141,6 +147,9 @@
           </div>
           <div class="map-card">
             <iframe title="Carte de localisation de L'Atelier des Liens" src="https://www.google.com/maps?ll=49.1370452,6.8275457&z=17&output=embed" loading="lazy"></iframe>
+            <div class="map-location" role="img" aria-label="L'Atelier des Liens, 10 rue des Genêts, 57800 Béning-lès-Saint-Avold">
+              <span aria-hidden="true"></span>
+            </div>
             <a class="map-link" href="https://www.google.com/maps/dir/?api=1&destination=10+rue+des+Gen%C3%AAts+57800+B%C3%A9ning-l%C3%A8s-Saint-Avold" target="_blank" rel="noopener">Lancer l'itinéraire <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -152,5 +161,6 @@
       <p>Partager · Échanger · Grandir ensemble</p>
       <p>© 2026 L'Atelier des Liens</p>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
