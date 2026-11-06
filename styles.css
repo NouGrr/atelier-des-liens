@@ -46,8 +46,8 @@ h1 em, h2 em { color: var(--pink); font-style: normal; }
 .intro-text { color: var(--muted); font-size: 1.1rem; margin: 0; max-width: 530px; }
 .centered { text-align: center; }
 .activities { background: var(--peach); max-width: none; padding-left: max(34px, calc((100% - 1172px) / 2)); padding-right: max(34px, calc((100% - 1172px) / 2)); }
-.activity-grid { display: grid; gap: 15px; grid-template-columns: repeat(5, 1fr); margin-top: 55px; }
-.activity-card { border-radius: 22px; color: white; cursor: pointer; height: 270px; padding: 25px 20px; position: relative; transform-origin: center; transition: box-shadow .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
+.activity-grid { display: grid; gap: 15px; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 55px; }
+.activity-card { border-radius: 22px; color: white; cursor: pointer; height: 270px; min-width: 0; padding: 25px 20px; position: relative; transform-origin: center; transition: box-shadow .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
 .activity-card:hover, .activity-card:focus-within { box-shadow: 0 22px 38px #17263d45; transform: translateY(-8px) scale(1.06); z-index: 2; }
 .activity-card:active { transform: translateY(-4px) scale(1.025); }
 .activity-card.pink { background: var(--pink); }
@@ -96,7 +96,7 @@ h1 em, h2 em { color: var(--pink); font-style: normal; }
   .hero-art .sun { height: 290px; width: 290px; }
   .hero-art img { max-width: 250px; }
   .intro, .membership, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
-  .activity-grid { grid-template-columns: repeat(2, 1fr); }
+  .activity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .form-preview { max-width: 280px; justify-self: center; }
 }
 @media (max-width: 520px) {
