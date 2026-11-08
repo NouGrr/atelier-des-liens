@@ -356,12 +356,12 @@ h2 em {
 
 .activity-icon svg {
   color: currentColor;
-  height: 48px;
+  height: 56px;
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 2.4;
-  width: 48px;
+  stroke-width: 2.8;
+  width: 56px;
 }
 
 .activity-card h3 {
