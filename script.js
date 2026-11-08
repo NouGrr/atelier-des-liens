@@ -29,6 +29,28 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeMenu);
   });
 
+  const sectionLinks = [...mainNav.querySelectorAll('a[href^="#"]')];
+  const sectionObserver = new IntersectionObserver((entries) => {
+    const currentSection = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (!currentSection) return;
+
+    const currentHref = `#${currentSection.target.id}`;
+    sectionLinks.forEach((link) => {
+      if (link.getAttribute('href') === currentHref) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }, { rootMargin: '-30% 0px -55% 0px' });
+
+  document.querySelectorAll('main .page-section[id]').forEach((section) => {
+    sectionObserver.observe(section);
+  });
+
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && mainNav.classList.contains('is-open')) closeMenu();
   });

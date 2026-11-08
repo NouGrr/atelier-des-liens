@@ -12,6 +12,7 @@
   --green: #2e7d32;
   --purple: #7b1fa2;
   --line: #eadfd1;
+  --header-height: 103px;
 }
 
 *,
@@ -22,13 +23,14 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 body {
   margin: 0;
   color: var(--ink);
   background: var(--cream);
-  font-family: "DM Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
 
@@ -56,11 +58,17 @@ button:focus-visible {
    ========================================================================== */
 .site-header {
   align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 250, 241, 0.96);
   display: flex;
   justify-content: space-between;
-  max-width: 1240px;
+  max-width: none;
   margin: auto;
-  padding: 18px 34px;
+  min-height: var(--header-height);
+  padding: 14px max(34px, calc((100% - 1172px) / 2));
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .brand img {
@@ -77,13 +85,32 @@ nav {
   font-weight: 500;
 }
 
+.site-header .nav-menu {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 5px 18px rgba(23, 38, 61, 0.05);
+  gap: 18px;
+  padding: 7px 16px;
+}
+
 nav a {
   transition: color 0.2s ease;
 }
 
 nav a:hover,
-.text-link:hover {
+.text-link:hover,
+nav a[aria-current="page"] {
   color: var(--pink);
+}
+
+nav a[aria-current="location"] {
+  background: var(--peach);
+  border-radius: 999px;
+  color: var(--pink);
+  font-weight: 700;
+  padding: 6px 12px;
 }
 
 .button {
@@ -116,7 +143,7 @@ nav a:hover,
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(340px, 0.85fr);
   max-width: 1240px;
-  min-height: 620px;
+  min-height: calc(100svh - var(--header-height));
   margin: auto;
   padding: 40px 34px 70px;
   align-items: center;
@@ -141,7 +168,7 @@ h3 {
 
 h1,
 h2 {
-  font-family: "Playfair Display", serif;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 h1 {
@@ -177,23 +204,6 @@ h2 em {
   gap: 6px;
 }
 
-.hero-note {
-  align-items: center;
-  color: var(--muted);
-  display: flex;
-  font-size: 0.85rem;
-  gap: 10px;
-  margin-top: 32px;
-}
-
-.hero-note-dot {
-  background: var(--green);
-  border: 4px solid rgba(46, 125, 50, 0.2);
-  border-radius: 50%;
-  height: 15px;
-  width: 15px;
-}
-
 .hero-art {
   min-height: 420px;
   position: relative;
@@ -220,7 +230,7 @@ h2 em {
 
 .scribble {
   color: var(--pink);
-  font-family: "Playfair Display", serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.15rem;
   position: absolute;
   font-weight: 600;
@@ -233,7 +243,7 @@ h2 em {
 }
 
 .scribble-two {
-  bottom: 8%;
+  bottom: -3%;
   left: 4%;
   color: var(--green);
   transform: rotate(-8deg);
@@ -248,8 +258,14 @@ h2 em {
   padding: 90px 34px;
 }
 
+.page-section {
+  min-height: calc(100svh - var(--header-height));
+  scroll-margin-top: var(--header-height);
+  scroll-snap-align: start;
+}
+
 .intro {
-  align-items: flex-end;
+  align-items: center;
   border-top: 1px solid var(--line);
   display: grid;
   gap: 60px;
@@ -276,10 +292,13 @@ h2 em {
    5. SECTION ACTIVITES (GRILLE & CARTES UNIFORMES)
    ========================================================================== */
 .activities {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--peach);
   max-width: none;
-  padding-left: max(34px, calc((100% - 1172px) / 2));
-  padding-right: max(34px, calc((100% - 1172px) / 2));
+  padding-left: max(34px, calc((100% - 1360px) / 2));
+  padding-right: max(34px, calc((100% - 1360px) / 2));
 }
 
 .activity-grid {
@@ -300,9 +319,9 @@ h2 em {
   flex-direction: column;
   justify-content: space-between;
 
-  min-height: 280px;
+  min-height: 320px;
   height: 100%;
-  padding: 28px 22px;
+  padding: 32px 28px;
   position: relative;
 
   /* Animation fluide d'agrandissement */
@@ -336,9 +355,10 @@ h2 em {
 }
 
 .activity-card h3 {
-  font-family: "Playfair Display", serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.25rem;
   margin-bottom: 10px;
+  hyphens: auto;
 }
 
 .activity-card p {
@@ -398,6 +418,9 @@ h2 em {
    ========================================================================== */
 .contact {
   border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .contact .section-heading > p:last-child {
@@ -511,7 +534,6 @@ h2 em {
   border: 0;
   height: 100%;
   min-height: 380px;
-  pointer-events: none;
   width: 100%;
 }
 
@@ -529,7 +551,7 @@ h2 em {
   background: var(--pink);
   border: 4px solid #ffffff;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(23, 38, 61, 0.35);
+  box-shadow: 0 4px 12px rgba(23, 38, 61, 0.25);
   display: block;
   height: 28px;
   width: 28px;
@@ -554,6 +576,73 @@ h2 em {
   background: #ffffff;
   color: var(--pink);
 }
+
+/* ==========================================================================
+   8. CONFIDENTIALITE & RGPD
+   ========================================================================== */
+.legal-body { scroll-snap-type: none; }
+
+.legal-header {
+  align-items: center;
+  background: rgba(255, 250, 241, 0.96);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  min-height: var(--header-height);
+  padding: 14px max(34px, calc((100% - 1172px) / 2));
+}
+
+.legal-page {
+  background: #f5eee3;
+  margin: 0 auto;
+  max-width: 1000px;
+  min-height: calc(100vh - var(--header-height));
+  padding: clamp(48px, 8vw, 88px) 34px;
+}
+
+.legal-intro { margin: 0 auto; max-width: 760px; }
+.legal-intro h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); }
+
+.legal-intro > p:last-child {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 20px 0 0;
+  max-width: 600px;
+}
+
+.privacy-content {
+  display: grid;
+  gap: 24px 44px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 38px;
+}
+
+.privacy-content article {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.privacy-content article h2,
+.privacy-content article h3 {
+  font-size: 1.08rem;
+  margin-bottom: 10px;
+}
+
+.privacy-content article p {
+  color: var(--muted);
+  font-size: .92rem;
+  margin: 0 0 10px;
+}
+
+.privacy-content a,
+.site-footer > a {
+  color: var(--pink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer > a { color: #fff; }
 
 /* ==========================================================================
    8. FOOTER
@@ -674,6 +763,11 @@ h2 em {
     grid-template-columns: 1fr;
   }
 
+  .section {
+    padding-bottom: 64px;
+    padding-top: 64px;
+  }
+
   .activity-card {
     min-height: auto;
   }
@@ -683,6 +777,14 @@ h2 em {
     flex-direction: column;
     text-align: center;
   }
+
+  .legal-page { padding: 48px 20px; }
+  .legal-header { padding: 12px 20px; }
+}
+
+@media (max-width: 850px) {
+  .privacy-content { grid-template-columns: 1fr; }
+  .legal-header { padding: 14px 24px; }
 }
 
 /* Menu mobile accessible */
@@ -718,6 +820,8 @@ h2 em {
   .nav-menu {
     align-items: center;
     background: var(--cream);
+    border: 0;
+    border-radius: 0;
     box-shadow: -10px 0 30px rgba(23, 38, 61, .15);
     display: flex;
     flex-direction: column;
