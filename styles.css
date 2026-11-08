@@ -855,3 +855,144 @@ h2 em {
   .nav-menu.is-open { right: 0; }
   .nav-menu a:not(.button) { font-size: 1.2rem; font-weight: 700; }
 }
+
+/* Ajustements fluides pour les tablettes et les petits écrans */
+.hero > *,
+.intro > *,
+.membership > *,
+.contact-layout > * { min-width: 0; }
+
+.contact-item,
+.facebook-link { overflow-wrap: anywhere; }
+
+@media (max-width: 1024px) {
+  .site-header,
+  .legal-header {
+    padding-left: clamp(24px, 4vw, 34px);
+    padding-right: clamp(24px, 4vw, 34px);
+  }
+
+  .activity-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  }
+
+  .activity-card { padding: clamp(22px, 2.7vw, 30px); }
+  .membership { gap: 40px; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px); }
+  .contact-layout { gap: 36px; }
+}
+
+@media (max-width: 850px) {
+  :root { --header-height: 80px; }
+
+  .site-header,
+  .legal-header {
+    gap: 14px;
+    min-height: var(--header-height);
+    padding: 10px clamp(18px, 4vw, 30px);
+  }
+
+  .site-header { backdrop-filter: none; }
+
+  .brand img { height: 60px; width: 60px; }
+
+  .site-header nav.nav-menu {
+    align-items: center;
+    background: var(--cream);
+    border: 0;
+    border-radius: 0;
+    box-shadow: -10px 0 30px rgba(23, 38, 61, .15);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    height: 100vh;
+    height: 100dvh;
+    justify-content: center;
+    max-width: 360px;
+    padding: calc(28px + env(safe-area-inset-top)) 24px calc(28px + env(safe-area-inset-bottom));
+    position: fixed;
+    right: -110%;
+    top: 0;
+    transition: right .3s cubic-bezier(.16, 1, .3, 1), visibility .3s;
+    visibility: hidden;
+    width: min(86vw, 360px);
+    z-index: 1000;
+  }
+
+  .site-header nav.nav-menu.is-open { right: 0; visibility: visible; }
+  .site-header nav.nav-menu a:not(.button) { font-size: 1.15rem; font-weight: 700; }
+  .nav-toggle { display: flex; margin-left: auto; }
+  .desktop-only-button { display: none; }
+  .mobile-only-button { display: inline-flex; margin-top: 8px; }
+
+  .hero {
+    align-items: center;
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    padding-top: clamp(36px, 7vw, 64px);
+  }
+
+  h1 { font-size: clamp(2.8rem, 9vw, 5rem); }
+  .hero-art { min-height: clamp(280px, 45vw, 350px); }
+  .hero-art .sun { height: clamp(230px, 38vw, 290px); width: clamp(230px, 38vw, 290px); }
+  .hero-art img { max-width: min(64vw, 250px); }
+
+  .intro,
+  .membership,
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .membership { justify-items: start; }
+  .form-preview { justify-self: center; max-width: min(72vw, 320px); }
+  .contact-layout { margin-top: 36px; }
+  .map-card, .map-card iframe { min-height: 340px; }
+  .privacy-content { grid-template-columns: minmax(0, 1fr); }
+  .legal-page { width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .section,
+  .hero {
+    padding-left: clamp(18px, 5vw, 24px);
+    padding-right: clamp(18px, 5vw, 24px);
+  }
+
+  .section {
+    padding-bottom: clamp(56px, 12vw, 72px);
+    padding-top: clamp(56px, 12vw, 72px);
+  }
+
+  .hero { padding-top: 32px; }
+  .hero-actions { align-items: flex-start; gap: 18px; }
+  .hero-actions .button { max-width: 100%; }
+  .section-heading h2 { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .intro { gap: 24px; }
+  .activity-grid { margin-top: 32px; }
+  .activity-card { min-height: 260px; }
+  .activity-icon { margin-bottom: 24px; }
+  .contact-item { align-items: flex-start; gap: 12px; }
+  .contact-symbol { flex-basis: 40px; height: 40px; }
+  .map-card, .map-card iframe { min-height: 300px; }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 18px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .legal-page { padding: 48px 20px; }
+  .legal-header { padding: 10px 18px; }
+  .legal-header .button { padding: 10px 14px; }
+}
+
+@media (max-width: 360px) {
+  .site-header { padding-left: 14px; padding-right: 14px; }
+  .brand img { height: 54px; width: 54px; }
+  .hero-actions { align-items: stretch; flex-direction: column; }
+  .hero-actions .button { justify-content: center; padding-left: 16px; padding-right: 16px; }
+  .activity-grid { grid-template-columns: minmax(0, 1fr); }
+  .map-card, .map-card iframe { min-height: 260px; }
+}
