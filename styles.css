@@ -317,7 +317,7 @@ h2 em {
   /* Agencement Flexbox pour uniformiser le contenu */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   min-height: 320px;
   height: 100%;
@@ -351,7 +351,7 @@ h2 em {
   display: block;
   font-size: 2.8rem;
   line-height: 1;
-  margin-bottom: 25px;
+  margin-bottom: 36px;
 }
 
 .activity-icon svg {
@@ -366,16 +366,18 @@ h2 em {
 
 .activity-card h3 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-  hyphens: auto;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .activity-card p {
   font-size: 0.88rem;
-  margin: 0;
+  margin: auto 0 0;
   opacity: 0.95;
   line-height: 1.45;
+  padding-top: 20px;
 }
 
 /* ==========================================================================
