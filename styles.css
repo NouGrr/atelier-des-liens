@@ -906,6 +906,7 @@ h2 em {
 
 @media (max-width: 850px) {
   :root { --header-height: 80px; }
+  html { scroll-padding-top: 0; }
 
   .site-header,
   .legal-header {
