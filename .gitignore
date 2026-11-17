@@ -2,3 +2,5 @@
 .codex/
 .openai/
 
+_site/
+output/

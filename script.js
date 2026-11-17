@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const mapConsent = document.getElementById('mapConsent');
+  const mapLoad = document.getElementById('mapLoad');
+  if (mapConsent && mapLoad) {
+    mapLoad.addEventListener('click', () => {
+      const frame = document.createElement('iframe');
+      frame.title = "Carte de localisation de L'Atelier des Liens";
+      frame.src = mapConsent.dataset.src;
+      frame.referrerPolicy = 'no-referrer-when-downgrade';
+      frame.allowFullscreen = true;
+      mapConsent.replaceWith(frame);
+      const pin = document.querySelector('.map-location');
+      if (pin) pin.hidden = false;
+    });
+  }
+
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
 

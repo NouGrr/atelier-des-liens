@@ -13,8 +13,10 @@
     <meta property="og:site_name" content="L'Atelier des Liens">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#fffaf1">
+    <link rel="canonical" href="https://nougrr.github.io/atelier-des-liens/">
     <link rel="icon" type="image/png" href="assets/logo-icon.png">
     <link rel="apple-touch-icon" href="assets/logo-icon.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"L'Atelier des Liens","url":"https://nougrr.github.io/atelier-des-liens/","logo":"https://nougrr.github.io/atelier-des-liens/assets/logo-atelier-des-liens.png","telephone":"+33682228231","email":"latelierdesliens57800@gmail.com","address":{"@type":"PostalAddress","streetAddress":"10 rue des Genêts","postalCode":"57800","addressLocality":"Béning-lès-Saint-Avold","addressCountry":"FR"},"sameAs":["https://www.facebook.com/profile.php?id=61596247804913"]}</script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -24,7 +26,7 @@
         <span class="hamburger-bar"></span><span class="hamburger-bar"></span><span class="hamburger-bar"></span>
       </button>
       <nav class="nav-menu" id="mainNav" aria-label="Navigation principale">
-        <a href="#accueil" aria-current="location">Accueil</a>
+        <a href="#accueil">Accueil</a>
         <a href="#association">L'association</a>
         <a href="#activites">Activités</a>
         <a href="#adhesion">Adhésion</a>
@@ -102,8 +104,11 @@
             <div class="social-note"><span>Suivez nos actualités</span><a class="facebook-link" href="https://www.facebook.com/profile.php?id=61596247804913&amp;locale=fr_FR" target="_blank" rel="noopener"><span class="facebook-mark">f</span> Nous trouver sur Facebook <span aria-hidden="true">↗</span></a></div>
           </div>
           <div class="map-card">
-            <iframe title="Carte de localisation de L'Atelier des Liens" src="https://www.google.com/maps?ll=49.1370452,6.8275457&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-            <div class="map-location" role="img" aria-label="L'Atelier des Liens, 10 rue des Genêts, 57800 Béning-lès-Saint-Avold"><span aria-hidden="true"></span></div>
+            <div class="map-consent" id="mapConsent" data-src="https://www.google.com/maps?ll=49.1370452,6.8275457&amp;z=17&amp;output=embed">
+              <p>La carte est fournie par Google Maps. Son affichage transmet des données techniques à Google.</p>
+              <button class="button button-small" type="button" id="mapLoad">Afficher la carte</button>
+            </div>
+            <div class="map-location" hidden role="img" aria-label="L'Atelier des Liens, 10 rue des Genêts, 57800 Béning-lès-Saint-Avold"><span aria-hidden="true"></span></div>
             <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=10+rue+des+Gen%C3%AAts+57800+B%C3%A9ning-l%C3%A8s-Saint-Avold" target="_blank" rel="noopener noreferrer">Lancer l'itinéraire <span aria-hidden="true">↗</span></a>
           </div>
         </div>
