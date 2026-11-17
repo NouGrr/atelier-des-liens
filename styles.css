@@ -551,23 +551,6 @@ h2 em {
   width: 100%;
 }
 
-.map-consent {
-  align-items: center;
-  background: var(--peach, #fff0dc);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  height: 100%;
-  justify-content: center;
-  min-height: 380px;
-  padding: 24px;
-  text-align: center;
-}
-
-.map-consent p { margin: 0; max-width: 320px; }
-
-.map-location[hidden] { display: none; }
-
 .map-location {
   align-items: center;
   display: flex;
