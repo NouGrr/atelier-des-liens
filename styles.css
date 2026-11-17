@@ -260,7 +260,6 @@ h2 em {
 
 .page-section {
   min-height: calc(100svh - var(--header-height));
-  scroll-margin-top: var(--header-height);
 }
 
 @media (prefers-reduced-motion: reduce) {
