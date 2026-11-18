@@ -684,6 +684,13 @@ h2 em {
   opacity: 0.85;
 }
 
+.site-footer p a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ==========================================================================
    9. MEDIA QUERIES (RESPONSIVE DESIGN)
    ========================================================================== */
