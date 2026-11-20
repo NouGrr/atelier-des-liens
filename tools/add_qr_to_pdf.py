@@ -11,7 +11,7 @@ from reportlab.pdfgen import canvas
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "assets" / "formulaire-adhesion.pdf"
 OUTPUT = ROOT / "assets" / "formulaire-adhesion-avec-liens.pdf"
-QR_TARGET = "https://nougrr.github.io/atelier-des-liens/linktree.html"
+QR_TARGET = "https://atelierdesliens-bening.fr/linktree.html"
 
 
 def main() -> None:
