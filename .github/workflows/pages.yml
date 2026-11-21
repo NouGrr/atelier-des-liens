@@ -28,9 +28,9 @@ jobs:
       - name: Assemble site
         run: |
           mkdir _site
-          cp index.html linktree.html confidentialite.html 404.html styles.css script.js robots.txt sitemap.xml _site/
+          cp index.html linktree.html confidentialite.html 404.html favicon.ico styles.css script.js robots.txt sitemap.xml _site/
           mkdir _site/assets
-          cp assets/logo-atelier-des-liens.png assets/logo-icon.png assets/formulaire-adhesion-avec-liens.pdf assets/formulaire-adhesion-avec-liens.png _site/assets/
+          cp assets/logo-atelier-des-liens.png assets/logo-icon.png assets/favicon-96.png assets/formulaire-adhesion-avec-liens.pdf assets/formulaire-adhesion-avec-liens.png _site/assets/
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
